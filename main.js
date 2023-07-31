@@ -26,15 +26,18 @@ const renderProducts = async () => {
   // Get all the products from fake store api
   let response = await fetch('https://fakestoreapi.com/products');
   let result = await response.json();
-  
-  const preAllProductsJSONElement = document.createElement('pre');
-  
-  preAllProductsJSONElement.textContent = JSON.stringify(result,undefined, 6);
 
-  rootElement.appendChild(preAllProductsJSONElement);
+  //creates 20 pretags with JSON response in a string
+    for(let i = 0; i < result.length; i++){
+      
+      const preAllProductsJSONElement = document.createElement('pre');
+      
+      
+      preAllProductsJSONElement.textContent = JSON.stringify(result,undefined, 6);
 
-  console.log(result)
-  
+      rootElement.appendChild(preAllProductsJSONElement);
+
+    }
   // Create elements for all of them and insert those into the DOM
 
 
