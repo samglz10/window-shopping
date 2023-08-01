@@ -27,18 +27,20 @@ const renderProducts = async () => {
   let response = await fetch('https://fakestoreapi.com/products');
   let result = await response.json();
 
-  //creates 20 pretags with JSON response in a string
+  //creates 20 pre tags with JSON response in a string 
     for(let i = 0; i < result.length; i++){
-      
+
+
+    // Create elements for all of them and insert those into the DOM
       const preAllProductsJSONElement = document.createElement('pre');
       
-      
-      preAllProductsJSONElement.textContent = JSON.stringify(result,undefined, 6);
+      // Once you do it with just dumping the raw json
+      preAllProductsJSONElement.textContent = JSON.stringify(result[i],undefined, 2);
 
       rootElement.appendChild(preAllProductsJSONElement);
 
     }
-  // Create elements for all of them and insert those into the DOM
+  
 
 
   // Once you do it with just dumping the raw json
@@ -46,8 +48,10 @@ const renderProducts = async () => {
 }
 
 renderProducts();
-/*
 
+
+/*
+// Example function
 const renderProduct = async () => {
   // Get the object from fake store API
   let response = await fetch('https://fakestoreapi.com/products/1')
