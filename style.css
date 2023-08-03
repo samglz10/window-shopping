@@ -44,11 +44,10 @@ h1 {
 #category {
   text-align: center;
 }
-#item-description {
-  
-}
+
 #main-div {
   text-align: center;
+  border: rgb(0, 247, 255) 2px solid;
 }
 
 
