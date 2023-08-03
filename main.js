@@ -26,24 +26,48 @@ const renderProducts = async () => {
   // Get all the products from fake store api
   let response = await fetch('https://fakestoreapi.com/products');
   let result = await response.json();
-
+  console.log(result)
   //creates 20 pre tags with JSON response in a string 
     for(let i = 0; i < result.length; i++){
-
-
+      
     // Create elements for all of them and insert those into the DOM
-      const preAllProductsJSONElement = document.createElement('pre');
+      //main/parent div
+      const mainDiv = document.createElement('div');
+      // creating elements
+      const titleElement = document.createElement('h3');
+      const categoryElement = document.createElement('p');
+      const descriptionElement = document.createElement('p');
+      const priceElement = document.createElement('p');
+      const ratingElement = document.createElement('p');
+      const inventoryElement = document.createElement('p');
+
+      //create ID's for elements
+      mainDiv.setAttribute('id','main-div')
+      descriptionElement.setAttribute('id','item-description');
+      categoryElement.setAttribute('id','category');
+
+      //creating textContent
+      titleElement.textContent = result[i].title;
+      categoryElement.textContent = "Category " + result[i].category;
+      descriptionElement.textContent = result[i].description;
+      priceElement.textContent = "$ "+result[i].price;
+      ratingElement.textContent = 'Rating: ' + result[i].rating.rate;
+      inventoryElement.textContent = 'In Items in Stock: ' + result[i].rating.count;
       
       // Once you do it with just dumping the raw json
-      preAllProductsJSONElement.textContent = JSON.stringify(result[i],undefined, 2);
-
-      rootElement.appendChild(preAllProductsJSONElement);
+      //mainDiv.textContent = JSON.stringify(result[i],undefined, 2);
+      //appendChild elements
+      mainDiv.appendChild(titleElement);
+      mainDiv.appendChild(categoryElement);
+      mainDiv.appendChild(descriptionElement); 
+      mainDiv.appendChild(priceElement);
+      mainDiv.appendChild(ratingElement);
+      mainDiv.appendChild(inventoryElement);
+             
+      rootElement.appendChild(mainDiv);
 
     }
-  
 
-
-  // Once you do it with just dumping the raw json
   // Try to use the object you get back to create specific elements, instead of just dumping JSON
 }
 
