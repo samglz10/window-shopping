@@ -14,6 +14,21 @@
   -webkit-text-size-adjust: 100%;
 }
 
+#title{
+  grid-column-start:1;
+  grid-column-end:3; 
+  text-align: center;
+  margin: auto;
+}
+
+#rating{
+  text-align: center;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  margin: auto;
+}
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -43,11 +58,34 @@ h1 {
 }
 #category {
   text-align: center;
+  grid-column-start:1;
+  grid-column-end:3; 
 }
 
 #main-div {
+  height: 80vh;
+  width: auto;
   text-align: center;
-  border: rgb(0, 247, 255) 2px solid;
+  border: rgb(0, 247, 255) 1px solid;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 20% 1fr 20%;
+  gap: 10px;
+  margin:20px;
+}
+
+#item-image{
+  object-fit: contain;
+  width: 100%;
+  max-height: 100%;
+  grid-row-start: 2;
+  grid-row-end: span 2;
+}
+
+#item-description{
+  display: flex;
+  text-align: center;
+  align-items: center;
 }
 
 

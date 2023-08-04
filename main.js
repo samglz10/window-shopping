@@ -40,11 +40,15 @@ const renderProducts = async () => {
       const priceElement = document.createElement('p');
       const ratingElement = document.createElement('p');
       const inventoryElement = document.createElement('p');
+      const imgElement = document.createElement('img');
 
       //create ID's for elements
       mainDiv.setAttribute('id','main-div')
+      titleElement.setAttribute('id','title');
       descriptionElement.setAttribute('id','item-description');
       categoryElement.setAttribute('id','category');
+      imgElement.setAttribute('id','item-image')
+      ratingElement.setAttribute('id','rating')
 
       //creating textContent
       titleElement.textContent = result[i].title;
@@ -52,18 +56,21 @@ const renderProducts = async () => {
       descriptionElement.textContent = result[i].description;
       priceElement.textContent = "$ "+result[i].price;
       ratingElement.textContent = 'Rating: ' + result[i].rating.rate;
-      inventoryElement.textContent = 'In Items in Stock: ' + result[i].rating.count;
+      inventoryElement.textContent = 'Items in Stock: ' + result[i].rating.count;
+      imgElement.src=result[i].image;
       
       // Once you do it with just dumping the raw json
       //mainDiv.textContent = JSON.stringify(result[i],undefined, 2);
       //appendChild elements
       mainDiv.appendChild(titleElement);
-      mainDiv.appendChild(categoryElement);
+      mainDiv.appendChild(imgElement);
       mainDiv.appendChild(descriptionElement); 
-      mainDiv.appendChild(priceElement);
       mainDiv.appendChild(ratingElement);
+      mainDiv.appendChild(priceElement);
       mainDiv.appendChild(inventoryElement);
-             
+      mainDiv.appendChild(categoryElement);
+    
+      //append all childs to parent div      
       rootElement.appendChild(mainDiv);
 
     }
