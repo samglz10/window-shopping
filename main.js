@@ -23,6 +23,12 @@ if (rootElement === null) {
 }
 
 const renderProducts = async () => {
+  // Select products container
+  const productContainerElement = document.querySelector('#products-container');
+  if (productContainerElement === null){
+    throw new Error('product container is null')
+  }
+  
   // Get all the products from fake store api
   let response = await fetch('https://fakestoreapi.com/products');
   let result = await response.json();
@@ -72,7 +78,9 @@ const renderProducts = async () => {
       containerElement.appendChild(categoryElement);
     
       //append all childs to parent div      
-      rootElement.appendChild(containerElement);
+      productContainerElement.appendChild(containerElement);
+      
+
 
     }
 
