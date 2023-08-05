@@ -26,13 +26,14 @@ const renderProducts = async () => {
   // Get all the products from fake store api
   let response = await fetch('https://fakestoreapi.com/products');
   let result = await response.json();
-  console.log(result)
+  //console.log(result);
   //creates 20 pre tags with JSON response in a string 
     for(let i = 0; i < result.length; i++){
       
     // Create elements for all of them and insert those into the DOM
-      //main/parent div
-      const mainDiv = document.createElement('div');
+      //main-parent div
+      const containerElement = document.createElement('div');
+
       // creating elements
       const titleElement = document.createElement('h3');
       const categoryElement = document.createElement('p');
@@ -42,13 +43,13 @@ const renderProducts = async () => {
       const inventoryElement = document.createElement('p');
       const imgElement = document.createElement('img');
 
-      //create ID's for elements
-      mainDiv.setAttribute('id','main-div')
-      titleElement.setAttribute('id','title');
-      descriptionElement.setAttribute('id','item-description');
-      categoryElement.setAttribute('id','category');
-      imgElement.setAttribute('id','item-image')
-      ratingElement.setAttribute('id','rating')
+      // Applying classes
+      containerElement.classList.add('item-container');
+      titleElement.classList.add('item-title');
+      descriptionElement.classList.add('item-description');
+      categoryElement.classList.add('item-category');
+      imgElement.classList.add('item-image');
+      ratingElement.classList.add('item-rating');
 
       //creating textContent
       titleElement.textContent = result[i].title;
@@ -62,16 +63,16 @@ const renderProducts = async () => {
       // Once you do it with just dumping the raw json
       //mainDiv.textContent = JSON.stringify(result[i],undefined, 2);
       //appendChild elements
-      mainDiv.appendChild(titleElement);
-      mainDiv.appendChild(imgElement);
-      mainDiv.appendChild(descriptionElement); 
-      mainDiv.appendChild(ratingElement);
-      mainDiv.appendChild(priceElement);
-      mainDiv.appendChild(inventoryElement);
-      mainDiv.appendChild(categoryElement);
+      containerElement.appendChild(titleElement);
+      containerElement.appendChild(imgElement);
+      containerElement.appendChild(descriptionElement); 
+      containerElement.appendChild(ratingElement);
+      containerElement.appendChild(priceElement);
+      containerElement.appendChild(inventoryElement);
+      containerElement.appendChild(categoryElement);
     
       //append all childs to parent div      
-      rootElement.appendChild(mainDiv);
+      rootElement.appendChild(containerElement);
 
     }
 
