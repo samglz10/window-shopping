@@ -56,6 +56,8 @@ const renderProducts = async () => {
       categoryElement.classList.add('item-category');
       imgElement.classList.add('item-image');
       ratingElement.classList.add('item-rating');
+      inventoryElement.classList.add('item-stock');
+      priceElement.classList.add('item-price');
 
       //creating textContent
       titleElement.textContent = result[i].title;
@@ -69,10 +71,11 @@ const renderProducts = async () => {
       // Once you do it with just dumping the raw json
       //mainDiv.textContent = JSON.stringify(result[i],undefined, 2);
       //appendChild elements
-      containerElement.appendChild(titleElement);
       containerElement.appendChild(imgElement);
-      containerElement.appendChild(descriptionElement); 
+      containerElement.appendChild(titleElement);
       containerElement.appendChild(ratingElement);
+      containerElement.appendChild(descriptionElement); 
+      
       containerElement.appendChild(priceElement);
       containerElement.appendChild(inventoryElement);
       containerElement.appendChild(categoryElement);
