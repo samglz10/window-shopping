@@ -35,6 +35,7 @@ const renderProducts = async () => {
   //console.log(result);
   //creates 20 pre tags with JSON response in a string 
     for(let i = 0; i < result.length; i++){
+
       
     // Create elements for all of them and insert those into the DOM
       //main-parent div
@@ -75,7 +76,6 @@ const renderProducts = async () => {
       containerElement.appendChild(titleElement);
       containerElement.appendChild(ratingElement);
       containerElement.appendChild(descriptionElement); 
-      
       containerElement.appendChild(priceElement);
       containerElement.appendChild(inventoryElement);
       containerElement.appendChild(categoryElement);
@@ -84,13 +84,22 @@ const renderProducts = async () => {
       productContainerElement.appendChild(containerElement);
       
 
-
     }
+   
+//need to set up function to print out stars equal to the number of
+    function starRating(result){
+      const star = '⭐';
+     console.log(star);
+   
+    
+      }
+    starRating();
 
-  // Try to use the object you get back to create specific elements, instead of just dumping JSON
 }
 
 renderProducts();
+
+
 
 
 /*
