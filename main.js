@@ -32,6 +32,9 @@ const renderProducts = async () => {
   // Get all the products from fake store api
   let response = await fetch('https://fakestoreapi.com/products');
   let result = await response.json();
+
+  
+
   //console.log(result);
   //creates 20 pre tags with JSON response in a string 
     for(let i = 0; i < result.length; i++){
@@ -60,12 +63,24 @@ const renderProducts = async () => {
       inventoryElement.classList.add('item-stock');
       priceElement.classList.add('item-price');
 
+      
+      function starRating(rating){
+        const star = ['⭐'];
+        let starRating = [''];
+          for(let i = 0; i < rating ; i++){
+            if( i < rating){
+              starRating.push(star);
+            }
+          }
+          return starRating;
+          }
+      
       //creating textContent
       titleElement.textContent = result[i].title;
       categoryElement.textContent = "Category " + result[i].category;
       descriptionElement.textContent = result[i].description;
       priceElement.textContent = "$ "+result[i].price;
-      ratingElement.textContent = 'Rating: ' + result[i].rating.rate;
+      ratingElement.textContent = 'Rating: ' + result[i].rating.rate + starRating(result[i].rating.rate);
       inventoryElement.textContent = 'Items in Stock: ' + result[i].rating.count;
       imgElement.src=result[i].image;
       
@@ -87,13 +102,7 @@ const renderProducts = async () => {
     }
    
 //need to set up function to print out stars equal to the number of
-    function starRating(result){
-      const star = '⭐';
-     console.log(star);
-   
     
-      }
-    starRating();
 
 }
 
