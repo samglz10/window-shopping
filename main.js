@@ -45,7 +45,7 @@ const renderProducts = async () => {
       const containerElement = document.createElement('div');
 
       // creating elements
-      const titleElement = document.createElement('h3');
+      const titleElement = document.createElement('h4');
       const categoryElement = document.createElement('p');
       const descriptionElement = document.createElement('p');
       const priceElement = document.createElement('p');
@@ -66,13 +66,17 @@ const renderProducts = async () => {
       
       function starRating(rating){
         const star = ['⭐'];
+        const halfStar = ['★']
         let starRating = [''];
-          for(let i = 0; i < rating ; i++){
-            if( i < rating){
+        let roundedRating = Math.round(rating);
+          for(let i = 0; i < roundedRating; i++){
+            if( i < roundedRating){  
               starRating.push(star);
-            }
+            } 
           }
-          return starRating;
+        return starRating;
+          
+
           }
       
       //creating textContent
@@ -80,7 +84,7 @@ const renderProducts = async () => {
       categoryElement.textContent = "Category " + result[i].category;
       descriptionElement.textContent = result[i].description;
       priceElement.textContent = "$ "+result[i].price;
-      ratingElement.textContent = 'Rating: ' + result[i].rating.rate + starRating(result[i].rating.rate);
+      ratingElement.textContent ='Rating: '+ result[i].rating.rate + starRating(result[i].rating.rate);
       inventoryElement.textContent = 'Items in Stock: ' + result[i].rating.count;
       imgElement.src=result[i].image;
       
