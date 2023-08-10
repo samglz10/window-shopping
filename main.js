@@ -84,7 +84,7 @@ const renderProducts = async () => {
       categoryElement.textContent = "Category " + result[i].category;
       descriptionElement.textContent = result[i].description;
       priceElement.textContent = "$ "+result[i].price;
-      ratingElement.textContent ='Rating: '+ result[i].rating.rate + starRating(result[i].rating.rate);
+      ratingElement.textContent = result[i].rating.rate+' ' + starRating(result[i].rating.rate);
       inventoryElement.textContent = 'Items in Stock: ' + result[i].rating.count;
       imgElement.src=result[i].image;
 
