@@ -58,6 +58,11 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
+  
+}
+
+.item-title:hover {
+  color: rgb(247, 169, 68);
 }
 
 .item-container > .item-rating {
@@ -130,13 +135,13 @@ h1 {
 
 .item-container > .item-description{
   display: flex;
-  text-overflow: ellipsis;
+  height: auto;
   align-items: center;
-  max-height: max-content;
+  max-height:fit-content;
   margin: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  overflow-y: scroll;
  
 }

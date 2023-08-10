@@ -45,14 +45,14 @@ const renderProducts = async () => {
       const containerElement = document.createElement('div');
 
       // creating elements
-      const titleElement = document.createElement('h4');
+      const titleElement = document.createElement('a');
       const categoryElement = document.createElement('p');
       const descriptionElement = document.createElement('p');
       const priceElement = document.createElement('p');
       const ratingElement = document.createElement('p');
       const inventoryElement = document.createElement('p');
       const imgElement = document.createElement('img');
-
+    
       // Applying classes
       containerElement.classList.add('item-container');
       titleElement.classList.add('item-title');
@@ -87,10 +87,15 @@ const renderProducts = async () => {
       ratingElement.textContent ='Rating: '+ result[i].rating.rate + starRating(result[i].rating.rate);
       inventoryElement.textContent = 'Items in Stock: ' + result[i].rating.count;
       imgElement.src=result[i].image;
-      
-      // Once you do it with just dumping the raw json
-      //mainDiv.textContent = JSON.stringify(result[i],undefined, 2);
+
+      let search_query = result[i].title;
+      console.log(search_query)
+
       //appendChild elements
+      //const linkElement = document.getElementsByClassName('item-title');
+      titleElement.href = `https://www.youtube.com/results?search_query=${search_query}`;
+      
+    
       containerElement.appendChild(imgElement);
       containerElement.appendChild(titleElement);
       containerElement.appendChild(ratingElement);
@@ -101,12 +106,16 @@ const renderProducts = async () => {
     
       //append all childs to parent div      
       productContainerElement.appendChild(containerElement);
+
       
 
+
     }
-   
-//need to set up function to print out stars equal to the number of
+
+    //anchor tags
+  
     
+      
 
 }
 
@@ -116,6 +125,7 @@ renderProducts();
 
 
 /*
+
 // Example function
 const renderProduct = async () => {
   // Get the object from fake store API
