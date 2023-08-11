@@ -67,16 +67,26 @@ const renderProducts = async () => {
       function starRating(rating){
         const star = ['⭐'];
         const halfStar = ['★']
-        let starRating = [''];
-        let roundedRating = Math.round(rating);
-          for(let i = 0; i < roundedRating; i++){
+        let starRating = [];
+        let roundedRating = Math.floor(rating);
+        
+          for(let i = 0; i < roundedRating ; i++){
             if( i < roundedRating){  
               starRating.push(star);
             } 
           }
+          for(let j = 0; j < 5; j++)
+          if (starRating.length < 5){
+            starRating.push(halfStar);
+          
+            console.log('added halfstar')
+          }
+          
+            console.log(starRating)
+        
+          
         return starRating;
           
-
           }
       
       //creating textContent
@@ -84,18 +94,15 @@ const renderProducts = async () => {
       categoryElement.textContent = "Category " + result[i].category;
       descriptionElement.textContent = result[i].description;
       priceElement.textContent = "$ "+result[i].price;
-      ratingElement.textContent = result[i].rating.rate+' ' + starRating(result[i].rating.rate);
+      ratingElement.textContent = result[i].rating.rate + ' ' + starRating(result[i].rating.rate);
       inventoryElement.textContent = 'Items in Stock: ' + result[i].rating.count;
       imgElement.src=result[i].image;
 
+      //anchor element with links
       let search_query = result[i].title;
-      console.log(search_query)
-
-      //appendChild elements
-      //const linkElement = document.getElementsByClassName('item-title');
       titleElement.href = `https://www.youtube.com/results?search_query=${search_query}`;
       
-    
+    //appendChild elements
       containerElement.appendChild(imgElement);
       containerElement.appendChild(titleElement);
       containerElement.appendChild(ratingElement);
