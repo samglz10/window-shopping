@@ -75,11 +75,12 @@ const renderProducts = async () => {
               starRating.push(star);
             } 
           }
-          for(let j = 0; j < 5; j++)
-          if (starRating.length < 5){
-            starRating.push(halfStar);
-          
-            console.log('added halfstar')
+
+          // starRating.length = 4, how many times should I loop? once
+          // starRading.length = 2, 3
+          const currentStars = starRating.length;
+          for(let j = 0; j < 5 - currentStars; j++) {
+              starRating.push(halfStar);
           }
           
             console.log(starRating)
