@@ -65,10 +65,10 @@ const renderProducts = async () => {
 
       
       function starRating(rating){
-        const star = ['⭐'];
-        const halfStar = ['★']
+        const star = '⭐';
+        const halfStar = '★'
         let starRating = [];
-        let roundedRating = Math.floor(rating);
+        let roundedRating = Math.round(rating);
         
           for(let i = 0; i < roundedRating ; i++){
             if( i < roundedRating){  
@@ -86,7 +86,7 @@ const renderProducts = async () => {
             console.log(starRating)
         
           
-        return starRating;
+        return starRating.join('');
           
           }
       
