@@ -243,7 +243,6 @@ body {
 @media (hover: hover){
   .item-title:hover{
     color: rgb(247, 169, 68);
-    text-decoration: underline;
   }
   .item-container > .item-rating:hover {
     
