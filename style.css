@@ -55,10 +55,9 @@ body {
 }
   
 .item-container {
-  height: 90vh;
+  height: 80vh;
   width: auto;
   text-align: center;
-  border: grey 1px groove;
   display: grid;
   grid-template-columns: 1fr ;
   grid-template-rows:  1fr;
@@ -142,7 +141,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: x-large;
+  font-size: xx-large;
 }
 
 
@@ -151,9 +150,9 @@ body {
   text-align: center;
   margin: auto;
   display: block;
-  max-width: 100%;
+  max-width: 200px;
   max-height: 100%;
-  position:static;
+  position: static;
 
 }
 
@@ -180,7 +179,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr ;
     grid-template-rows:  1fr 1fr 1fr 1fr;
-    height: 90vh;
+   
     
   }
 }
@@ -191,8 +190,6 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows:  1fr 1fr 1fr 1fr;
-    height: 90vh;
-    
   }
 }
 

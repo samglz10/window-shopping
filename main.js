@@ -47,7 +47,7 @@ const renderProducts = async () => {
       // creating elements
       const titleElement = document.createElement('a');
       //const categoryElement = document.createElement('p');
-      const descriptionElement = document.createElement('p');
+      //const descriptionElement = document.createElement('p');
       const priceElement = document.createElement('p');
       const ratingElement = document.createElement('p');
       //const inventoryElement = document.createElement('p');
@@ -56,7 +56,7 @@ const renderProducts = async () => {
       // Applying classes
       containerElement.classList.add('item-container');
       titleElement.classList.add('item-title');
-      descriptionElement.classList.add('item-description');
+      //descriptionElement.classList.add('item-description');
       //categoryElement.classList.add('item-category');
       imgElement.classList.add('item-image');
       ratingElement.classList.add('item-rating');
@@ -88,12 +88,14 @@ const renderProducts = async () => {
             return starRating.join('');
           }
        
-      
+      function priceStyle(){
+
+      }
       //creating textContent
       titleElement.textContent = result[i].title;
       //categoryElement.textContent = "Category " + result[i].category;
-      descriptionElement.textContent = result[i].description;
-      priceElement.textContent = "$ "+result[i].price;
+      //descriptionElement.textContent = result[i].description;
+      priceElement.textContent = "$ "+result[i].price // priceStyle(result[i].price );
       ratingElement.textContent = starRating(result[i].rating.rate);
       //inventoryElement.textContent = 'Items in Stock: ' + result[i].rating.count;
       imgElement.src=result[i].image;
@@ -106,11 +108,11 @@ const renderProducts = async () => {
       containerElement.appendChild(imgElement);
       containerElement.appendChild(titleElement);
       containerElement.appendChild(ratingElement);
-      containerElement.appendChild(descriptionElement); 
+      //containerElement.appendChild(descriptionElement); 
       containerElement.appendChild(priceElement);
       //containerElement.appendChild(inventoryElement);
       //containerElement.appendChild(categoryElement);
-    
+          console.log(result[i].price)
       //append all childs to parent div      
       productContainerElement.appendChild(containerElement);
 
