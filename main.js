@@ -46,57 +46,56 @@ const renderProducts = async () => {
 
       // creating elements
       const titleElement = document.createElement('a');
-      const categoryElement = document.createElement('p');
+      //const categoryElement = document.createElement('p');
       const descriptionElement = document.createElement('p');
       const priceElement = document.createElement('p');
       const ratingElement = document.createElement('p');
-      const inventoryElement = document.createElement('p');
+      //const inventoryElement = document.createElement('p');
       const imgElement = document.createElement('img');
     
       // Applying classes
       containerElement.classList.add('item-container');
       titleElement.classList.add('item-title');
       descriptionElement.classList.add('item-description');
-      categoryElement.classList.add('item-category');
+      //categoryElement.classList.add('item-category');
       imgElement.classList.add('item-image');
       ratingElement.classList.add('item-rating');
-      inventoryElement.classList.add('item-stock');
+      //inventoryElement.classList.add('item-stock');
       priceElement.classList.add('item-price');
 
       
       function starRating(rating){
         const star = '⭐';
-        const halfStar = '★'
+        const halfStar = '🌓'
+        const emptyStar = '★'
         let starRating = [];
         let roundedRating = Math.round(rating);
-        
           for(let i = 0; i < roundedRating ; i++){
             if( i < roundedRating){  
               starRating.push(star);
             } 
           }
-
+          if (roundedRating < rating){
+            starRating.push(halfStar);
+          }
           // starRating.length = 4, how many times should I loop? once
           // starRading.length = 2, 3
           const currentStars = starRating.length;
-          for(let j = 0; j < 5 - currentStars; j++) {
-              starRating.push(halfStar);
+          for(let j = 0; j < 4 - currentStars; j++) {
+              starRating.push(emptyStar);
           }
-          
-            console.log(starRating)
-        
-          
-        return starRating.join('');
-          
+           
+            return starRating.join('');
           }
+       
       
       //creating textContent
       titleElement.textContent = result[i].title;
-      categoryElement.textContent = "Category " + result[i].category;
+      //categoryElement.textContent = "Category " + result[i].category;
       descriptionElement.textContent = result[i].description;
       priceElement.textContent = "$ "+result[i].price;
-      ratingElement.textContent = result[i].rating.rate + ' ' + starRating(result[i].rating.rate);
-      inventoryElement.textContent = 'Items in Stock: ' + result[i].rating.count;
+      ratingElement.textContent = starRating(result[i].rating.rate);
+      //inventoryElement.textContent = 'Items in Stock: ' + result[i].rating.count;
       imgElement.src=result[i].image;
 
       //anchor element with links
@@ -109,8 +108,8 @@ const renderProducts = async () => {
       containerElement.appendChild(ratingElement);
       containerElement.appendChild(descriptionElement); 
       containerElement.appendChild(priceElement);
-      containerElement.appendChild(inventoryElement);
-      containerElement.appendChild(categoryElement);
+      //containerElement.appendChild(inventoryElement);
+      //containerElement.appendChild(categoryElement);
     
       //append all childs to parent div      
       productContainerElement.appendChild(containerElement);

@@ -28,6 +28,8 @@ submitForm.addEventListener('submit',(e) => {
         })
             .then(res=>res.json())
             .then(json=>console.log(json))
+            alert('submitted!')
+            window.location.href = 'index.html'
     /*
     //long way to get the data
     let newProduct = {
@@ -38,6 +40,7 @@ submitForm.addEventListener('submit',(e) => {
         category: categoryData.value
     }
     console.log(newProduct)*/
+  
     })
 }
 
