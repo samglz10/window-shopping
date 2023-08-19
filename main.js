@@ -117,18 +117,19 @@ function starRating(rating = 0) {
   const halfStar = '🌓'
   const emptyStar = '★'
   let starRating = [];
-  let roundedRating = Math.round(rating);
+  let roundedRating = roundToStep(rating, 0.5);
 
-  for(let i = 0; i < roundedRating ; i++){
-    if( i < roundedRating){  
-      starRating.push(star);
-    } 
+  // Count whole stars
+  for(let i = 0; i < Math.floor(roundedRating) ; i++){
+    starRating.push(star);
   }
-  if (roundedRating < rating){
+
+  // Check for half stars
+  if (roundedRating !== Math.round(rating)) {
     starRating.push(halfStar);
   }
-  // starRating.length = 4, how many times should I loop? once
-  // starRading.length = 2, 3
+
+  // Filling wiht empty stars
   const currentStars = starRating.length;
   for(let j = 0; j < 5 - currentStars; j++) {
       starRating.push(emptyStar);
@@ -137,6 +138,13 @@ function starRating(rating = 0) {
   return starRating.join('');
 }
 
+/**
+* @param {number} num
+* @param {number} step 
+*/
+function roundToStep(num, step){
+  return Math.round(num / step) * step
+}
 
 
 
