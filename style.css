@@ -126,11 +126,18 @@ body {
 
 .item-container > .item-rating {
   text-align: center;
-  margin: 0;
+  margin: 0 auto;
   min-height: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  width: max-content;
+}
+
+.item-rating > svg{
+  fill: #f6ae00;
+  stroke: #d8871c;
+  stroke-width: 0.5px;
+  height: 1.3em;
 }
 
 .item-container > .item-price {
