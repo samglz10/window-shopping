@@ -81,16 +81,14 @@ const renderProducts = async () => {
           // starRating.length = 4, how many times should I loop? once
           // starRading.length = 2, 3
           const currentStars = starRating.length;
-          for(let j = 0; j < 4 - currentStars; j++) {
+          for(let j = 0; j < 5 - currentStars; j++) {
               starRating.push(emptyStar);
           }
            
             return starRating.join('');
           }
-       
-      function priceStyle(){
 
-      }
+     
       //creating textContent
       titleElement.textContent = result[i].title;
       //categoryElement.textContent = "Category " + result[i].category;
