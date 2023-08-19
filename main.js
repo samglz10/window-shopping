@@ -33,8 +33,7 @@ const renderProducts = async () => {
   let response = await fetch('https://fakestoreapi.com/products');
   let result = await response.json();
 
-  
-
+       
   //console.log(result);
   //creates 20 pre tags with JSON response in a string 
     for(let i = 0; i < result.length; i++){
@@ -64,29 +63,7 @@ const renderProducts = async () => {
       priceElement.classList.add('item-price');
 
       
-      function starRating(rating){
-        const star = '⭐';
-        const halfStar = '🌓'
-        const emptyStar = '★'
-        let starRating = [];
-        let roundedRating = Math.round(rating);
-          for(let i = 0; i < roundedRating ; i++){
-            if( i < roundedRating){  
-              starRating.push(star);
-            } 
-          }
-          if (roundedRating < rating){
-            starRating.push(halfStar);
-          }
-          // starRating.length = 4, how many times should I loop? once
-          // starRading.length = 2, 3
-          const currentStars = starRating.length;
-          for(let j = 0; j < 5 - currentStars; j++) {
-              starRating.push(emptyStar);
-          }
-           
-            return starRating.join('');
-          }
+
 
      
       //creating textContent
@@ -123,10 +100,42 @@ const renderProducts = async () => {
   
     
       
-
 }
 
 renderProducts();
+
+// let foo: undefined
+/** @type {string} */
+let foo
+
+/** 
+ * @param {number | undefined} rating
+ * @returns {string} 
+ * */
+function starRating(rating = 0) {
+  const star = '⭐';
+  const halfStar = '🌓'
+  const emptyStar = '★'
+  let starRating = [];
+  let roundedRating = Math.round(rating);
+
+  for(let i = 0; i < roundedRating ; i++){
+    if( i < roundedRating){  
+      starRating.push(star);
+    } 
+  }
+  if (roundedRating < rating){
+    starRating.push(halfStar);
+  }
+  // starRating.length = 4, how many times should I loop? once
+  // starRading.length = 2, 3
+  const currentStars = starRating.length;
+  for(let j = 0; j < 5 - currentStars; j++) {
+      starRating.push(emptyStar);
+  }
+      
+  return starRating.join('');
+}
 
 
 
