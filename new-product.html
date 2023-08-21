@@ -11,44 +11,48 @@
     <link rel=" stylesheet" type="text/css" href="style.css">
   </head>
   <body>
-    <form id="myForm" >
-        <label for="title">Title:</label>
-        <input 
-            type="text"
-            id="title"
-            name="title"
-            minlength="1"
-            maxlength="255"
-            required
-        />
-        <label for="price">Price:</label>
-            <input
-                type="number"
-                id="price"
-                name="price"
-                placeholder="10.00"
-                required
-            />
-        <label for="description">Description:</label>
-            <input
+    <div id="myForm-container">
+        <img src="./public/christian-wiediger-rymh7EZPqRs-unsplash.jpg" id="product-image" alt="amazon-product-image">
+        <form id="myForm" >
+            <h1>Add a New Product</h1>
+            <label for="title">Title:</label>
+            <input 
                 type="text"
-                id="description"
-                name="description"
-                placeholder="About Product"
+                id="title"
+                name="title"
                 minlength="1"
+                maxlength="255"
                 required
             />
-        <label for='image' >Image Upload</label>
-            <input type="url" id="image" name="image" value="http://placekitten.com/200/300">
-        <label for="category">Categories</label>
-            <select name="category" id="category" required>
-                <option value="Men's Clothing">Men's Clothing </option>
-                <option value="Women's Clothing">Women's Clothing </option>
-                <option value="Jewelry">Jewelry</option>
-                <option value="Electronics">Electronics</option>
-            </select>
-        <button type="submit" id="submit-btn" class="link-button"> Submit</button> 
-    </form> 
+            <label for="price">Price:</label>
+                <input
+                    type="number"
+                    id="price"
+                    name="price"
+                    placeholder="10.00"
+                    required
+                />
+            <label for="description">Description:</label>
+                <input
+                    type="text"
+                    id="description"
+                    name="description"
+                    placeholder="About Product"
+                    minlength="1"
+                    required
+                />
+            <label for='image' >Image Upload</label>
+                <input type="url" id="image" name="image" value="http://placekitten.com/200/300">
+            <label for="category">Categories</label>
+                <select name="category" id="category" required>
+                    <option value="Men's Clothing">Men's Clothing </option>
+                    <option value="Women's Clothing">Women's Clothing </option>
+                    <option value="Jewelry">Jewelry</option>
+                    <option value="Electronics">Electronics</option>
+                </select>
+            <button type="submit" id="submit-btn" class="link-button"> Submit</button> 
+        </form> 
+    </div>
     <script>
         window.onload = () => {
             // When a user types in something for price, we format it

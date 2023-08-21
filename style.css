@@ -70,7 +70,7 @@ body {
 .item-container > .item-title {
   text-align: center;
   margin: 0;
-  font-weight: 500;
+  font-weight: 400;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -106,6 +106,64 @@ body {
   gap: 10px;
   padding: 15px 0px;
 }
+
+#myForm-container{
+  display: flex;
+  margin-bottom: auto;
+  align-items: flex-start;
+  flex-direction: column;
+  
+}
+
+#myForm-container > #product-image{
+  display: inline-block;
+  text-align: center;
+  height: 50px;
+  width: auto;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+#myForm 
+  {
+    border: solid black 1px;
+    padding: 26px;
+    font-weight: 400;
+    display: flex;
+    color: rgb(17, 17, 17);
+    font-size: 13px;
+    margin: 0;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-radius: 8px;
+  
+  }
+  #myForm  > label
+  {
+    font-weight: 500;
+    margin-top: 10px;
+    font-family: "Amazon Ember", Arial, sans-serif;
+  
+  }
+
+  #myForm  > input
+  {
+    font-size: 13px ;
+    border-radius: 3px;
+    border: 1px rgb(17, 17, 17) solid;
+  
+  }
+
+  #submit-btn {
+    display: block;
+    text-align: center;
+    margin: auto;
+    margin-top: 10px;
+    border: none;
+    width: 100%;
+    
+  }
+
 .item-container > .item-category {
   text-align: center;
   margin: 0;
@@ -144,11 +202,11 @@ body {
   text-align: center;
   margin: 0;
   min-height: 0;
-  font-weight: 700;
+  font-weight: 400;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: xx-large;
+  font-size: x-large;
 }
 
 
@@ -160,6 +218,8 @@ body {
   max-width: 200px;
   max-height: 100%;
   position: static;
+  cursor: pointer;
+  
 
 }
 
@@ -211,13 +271,22 @@ body {
   }
 }
 
-
-
-@media all and (max-width:1200px){
+@media all and (max-width:1400px){
 
   #products-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr ;
+    grid-template-rows:  1fr 1fr 1fr 1fr;
+    
+    
+  }
+}
+
+@media all and (max-width:1300px){
+
+  #products-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr ;
     grid-template-rows:  1fr 1fr 1fr 1fr;
     
     
