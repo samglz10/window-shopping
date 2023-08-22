@@ -1,4 +1,5 @@
 import {reviewCounter} from './reviewCounter.js'
+import { randomDelivery } from './randomDeliveryTimes.js'
 const exampleProduct = {
   "id": 1,
   "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
@@ -53,6 +54,7 @@ const renderProducts = async () => {
       //const inventoryElement = document.createElement('p');
       const imgElement = document.createElement('img');
       const reviewElement = document.createElement('p');
+      const deliveryElement = document.createElement('p');
     
       // Applying classes
       containerElement.classList.add('item-container');
@@ -64,11 +66,8 @@ const renderProducts = async () => {
       //inventoryElement.classList.add('item-stock');
       priceElement.classList.add('item-price');
       reviewElement.classList.add('item-review');
+      deliveryElement.classList.add('delivery');
 
-      
-
-
-     
       //creating textContent
       titleElement.textContent = result[i].title;
       //categoryElement.textContent = "Category " + result[i].category;
@@ -78,6 +77,7 @@ const renderProducts = async () => {
       //inventoryElement.textContent = 'Items in Stock: ' + result[i].rating.count;
       imgElement.src=result[i].image;
       reviewElement.textContent = reviewCounter(1000, 10000);
+      deliveryElement.textContent = randomDelivery();
 
       //anchor element with links
       let search_query = result[i].title;
@@ -93,6 +93,7 @@ const renderProducts = async () => {
       containerElement.appendChild(priceElement);
       //containerElement.appendChild(inventoryElement);
       //containerElement.appendChild(categoryElement);
+      containerElement.appendChild(deliveryElement);
       //append all childs to parent div      
       productContainerElement.appendChild(containerElement);
 
