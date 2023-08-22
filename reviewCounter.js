@@ -1,9 +1,9 @@
-const reviewCounter = (num) => {
-    //Math.random returns a random number between 0 and 1;
-    for(let i = 0; i < 10; i++){
-    let randomNumber = Math.round(Math.random() * num);
-    console.log(randomNumber);
-    }
+export const reviewCounter = (min, max) => {
+    //Math.random returns a random number between 0 and 1; Getting a random integer between two values;
+    let randomNumber = Math.round(Math.random() * (max - min) + min);
+    let randomReviews = randomNumber.toString();
+   
+    return randomReviews 
+
 }
 
-reviewCounter(5);

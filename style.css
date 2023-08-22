@@ -184,11 +184,17 @@ body {
 
 .item-container > .item-rating {
   text-align: center;
-  margin: 0 auto;
+  margin: auto;
   min-height: 0;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  width: max-content;
+  grid-template-columns: repeat(6, 0.65fr);
+  
+  width: fit-content;
+}
+.item-review {
+ color: #2896df ;
+ 
+ 
 }
 
 .item-rating > svg{

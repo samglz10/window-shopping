@@ -1,3 +1,4 @@
+import {reviewCounter} from './reviewCounter.js'
 const exampleProduct = {
   "id": 1,
   "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
@@ -51,6 +52,7 @@ const renderProducts = async () => {
       const ratingElement = document.createElement('p');
       //const inventoryElement = document.createElement('p');
       const imgElement = document.createElement('img');
+      const reviewElement = document.createElement('p');
     
       // Applying classes
       containerElement.classList.add('item-container');
@@ -61,6 +63,7 @@ const renderProducts = async () => {
       ratingElement.classList.add('item-rating');
       //inventoryElement.classList.add('item-stock');
       priceElement.classList.add('item-price');
+      reviewElement.classList.add('item-review');
 
       
 
@@ -71,9 +74,10 @@ const renderProducts = async () => {
       //categoryElement.textContent = "Category " + result[i].category;
       //descriptionElement.textContent = result[i].description;
       priceElement.textContent = "$ "+result[i].price // priceStyle(result[i].price );
-      ratingElement.innerHTML = starRating(result[i].rating.rate);
+      ratingElement.innerHTML = starRating(result[i].rating.rate) ;
       //inventoryElement.textContent = 'Items in Stock: ' + result[i].rating.count;
       imgElement.src=result[i].image;
+      reviewElement.textContent = reviewCounter(1000, 10000);
 
       //anchor element with links
       let search_query = result[i].title;
@@ -83,11 +87,12 @@ const renderProducts = async () => {
       containerElement.appendChild(imgElement);
       containerElement.appendChild(titleElement);
       containerElement.appendChild(ratingElement);
+      //appending random review numbers to the rating element as a child
+      ratingElement.appendChild(reviewElement);
       //containerElement.appendChild(descriptionElement); 
       containerElement.appendChild(priceElement);
       //containerElement.appendChild(inventoryElement);
       //containerElement.appendChild(categoryElement);
-          console.log(result[i].price)
       //append all childs to parent div      
       productContainerElement.appendChild(containerElement);
 
@@ -138,6 +143,8 @@ function starRating(rating = 0) {
 function roundToStep(num, step){
   return Math.round(num / step) * step
 }
+
+
 
 const HALF_STAR = `
 <svg focusable="false" aria-hidden="true" viewBox="0 0 24 24">
