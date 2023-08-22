@@ -5,9 +5,8 @@ export const randomDelivery = () =>{
     const months = todaysDate.getMonth();
     const monthNames = ['Jan','Feb','Mar','Apr','May','Jun', 'Jul','Aug','Sept','Oct','Nov','Dec'];
     const month = monthNames[months];
-    //grab day
-    const days = todaysDate.getDate();
-
+    //grab day plus 1 for tomorrows date;
+    const days = todaysDate.getDate() + 1;
 
     const deliveryTimes = [
         "FREE delivery Today 10 AM - 3 PM",
@@ -16,7 +15,7 @@ export const randomDelivery = () =>{
     ]
     const max = 0;
     const min = 2;
-
+    //random number will be the index of the delivery times array
     let randomTime = Math.round(Math.random() * (max - min) + min);
     const deliveryTime = deliveryTimes[randomTime];
         return deliveryTime
