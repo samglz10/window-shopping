@@ -9,9 +9,9 @@ export const randomDelivery = () =>{
     const days = todaysDate.getDate() + 1;
 
     const deliveryTimes = [
-        "FREE delivery Today 10 AM - 3 PM",
-        "FREE delivery Today 5 PM - 10 PM",
-        `FREE delivery Tomorrow, ${month} ${days} `
+        " Today 10 AM - 3 PM",
+        " Today 5 PM - 10 PM",
+        ` Tomorrow, ${month} ${days} `
     ]
     const max = 0;
     const min = 2;

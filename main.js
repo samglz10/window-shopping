@@ -77,7 +77,7 @@ const renderProducts = async () => {
       //inventoryElement.textContent = 'Items in Stock: ' + result[i].rating.count;
       imgElement.src=result[i].image;
       reviewElement.textContent = reviewCounter(1000, 10000);
-      deliveryElement.textContent = randomDelivery();
+      deliveryElement.textContent = "Free Delivery" + randomDelivery();
 
       //anchor element with links
       let search_query = result[i].title;
