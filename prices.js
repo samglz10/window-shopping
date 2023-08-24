@@ -1,19 +1,28 @@
-function priceStyle(price){
-  const stringPrice = price.toString();
+ export function priceStyle(price){
+  console.log('orignial price', price)
+  //Round down to nearest whole number to get price;
+  const dollars = Math.floor(price).toString();
+  //console.log(dollars);
+  //find the index of the index of the decimal value;
+  const decimal = price.toString().indexOf('.');
+
+  let cents = price.toString().slice(decimal + 1);
+  console.log('cents',cents)
   
-  //iterate through the string price and drop the two cents and the decimal
-    for (let i = 0; i < stringPrice.length; i++){
-    if (stringPrice.length <= 3){
-        let dollarPrice = stringPrice.slice(1);
-        console.log("dollarPrice "+dollarPrice)
-    }else {
-        let newPrice = stringPrice.slice(stringPrice.length - 3)
-        console.log("newPrice" + newPrice);
-        
-    }
-       
-    }
-    
+  //if cents is 0 or cents is less than tens then add the a zero
+  if(cents.length < 2) {
+    cents = '0'
+    cents += '0';
+  } if (cents === dollars){
+    cents = cents;
   }
 
-priceStyle(10.2)
+  console.log('final cents',cents)
+
+    //Deprecated
+    //cents.sup();
+    let totalPrice = [dollars, cents];
+    
+    return totalPrice;
+    
+} 

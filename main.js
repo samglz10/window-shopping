@@ -1,5 +1,6 @@
 import {reviewCounter} from './reviewCounter.js'
 import { randomDelivery } from './randomDeliveryTimes.js'
+import { priceStyle } from './prices.js';
 const exampleProduct = {
   "id": 1,
   "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
@@ -72,7 +73,7 @@ const renderProducts = async () => {
       titleElement.textContent = result[i].title;
       //categoryElement.textContent = "Category " + result[i].category;
       //descriptionElement.textContent = result[i].description;
-      priceElement.textContent = "$ "+result[i].price // priceStyle(result[i].price );
+      priceElement.textContent = "$ "+ priceStyle(result[i].price)// priceStyle(result[i].price );
       ratingElement.innerHTML = starRating(result[i].rating.rate) ;
       //inventoryElement.textContent = 'Items in Stock: ' + result[i].rating.count;
       imgElement.src=result[i].image;
