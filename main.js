@@ -56,6 +56,9 @@ const renderProducts = async () => {
       const imgElement = document.createElement('img');
       const reviewElement = document.createElement('p');
       const deliveryElement = document.createElement('p');
+      const dollarElement = document.createElement('p');
+      const centsElement = document.createElement('p');
+
     
       // Applying classes
       containerElement.classList.add('item-container');
@@ -68,12 +71,16 @@ const renderProducts = async () => {
       priceElement.classList.add('item-price');
       reviewElement.classList.add('item-review');
       deliveryElement.classList.add('delivery');
+      dollarElement.classList.add('dollars');
+      centsElement.classList.add('cents');
 
       //creating textContent
       titleElement.textContent = result[i].title;
       //categoryElement.textContent = "Category " + result[i].category;
       //descriptionElement.textContent = result[i].description;
-      priceElement.textContent = "$ "+ priceStyle(result[i].price)// priceStyle(result[i].price );
+      priceElement.textContent = "$ " + priceStyle(result[i].price);
+      dollarElement.innerHTML= priceElement[0];
+      centsElement.innerHTML = priceElement[1];
       ratingElement.innerHTML = starRating(result[i].rating.rate) ;
       //inventoryElement.textContent = 'Items in Stock: ' + result[i].rating.count;
       imgElement.src=result[i].image;
@@ -92,6 +99,8 @@ const renderProducts = async () => {
       ratingElement.appendChild(reviewElement);
       //containerElement.appendChild(descriptionElement); 
       containerElement.appendChild(priceElement);
+      containerElement.appendChild(dollarElement);
+      containerElement.appendChild(centsElement);
       //containerElement.appendChild(inventoryElement);
       //containerElement.appendChild(categoryElement);
       containerElement.appendChild(deliveryElement);
