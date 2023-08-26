@@ -1,5 +1,5 @@
  export function priceStyle(price){
-  console.log('orignial price', price)
+  
   //Round down to nearest whole number to get price;
   const dollars = Math.floor(price).toString();
 
@@ -16,8 +16,8 @@
     cents = 0;
     cents += '0';
   }
-    let totalPrice = [dollars , cents];
-
+    let totalPrice= [dollars, cents];
+    
     return totalPrice;
   
 } 

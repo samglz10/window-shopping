@@ -73,14 +73,15 @@ const renderProducts = async () => {
       deliveryElement.classList.add('delivery');
       dollarElement.classList.add('dollars');
       centsElement.classList.add('cents');
+      
 
       //creating textContent
       titleElement.textContent = result[i].title;
       //categoryElement.textContent = "Category " + result[i].category;
       //descriptionElement.textContent = result[i].description;
       priceElement.textContent = "$ " + priceStyle(result[i].price);
-      dollarElement.innerHTML= priceElement[0];
-      centsElement.innerHTML = priceElement[1];
+      dollarElement.innerHTML= 'dollars' //priceElement[0];
+      centsElement.innerHTML = 'cents'//priceElement[1];
       ratingElement.innerHTML = starRating(result[i].rating.rate) ;
       //inventoryElement.textContent = 'Items in Stock: ' + result[i].rating.count;
       imgElement.src=result[i].image;
@@ -99,8 +100,8 @@ const renderProducts = async () => {
       ratingElement.appendChild(reviewElement);
       //containerElement.appendChild(descriptionElement); 
       containerElement.appendChild(priceElement);
-      containerElement.appendChild(dollarElement);
-      containerElement.appendChild(centsElement);
+      priceElement.appendChild(dollarElement);
+      priceElement.appendChild(centsElement);
       //containerElement.appendChild(inventoryElement);
       //containerElement.appendChild(categoryElement);
       containerElement.appendChild(deliveryElement);
