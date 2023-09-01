@@ -55,13 +55,13 @@ body {
 }
   
 .item-container {
-  height: 80vh;
+  height: 50vh;
   width: auto;
   text-align: center;
   display: grid;
   grid-template-columns: 1fr ;
-  grid-template-rows:  1fr;
-  gap: 10px;
+  grid-template-rows: minmax(0,1fr);
+  gap: 5px;
   padding: 10px;
   min-width: 0;
   min-height: 0;
@@ -69,16 +69,26 @@ body {
 
 .item-container > .item-title {
   text-align: center;
-  margin: 0;
+  text-transform: ellipsis;
+  margin: auto;
   font-weight: 400;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow:auto;
-  font-size: 1em;
+  font-size: 16px;
   text-decoration: none;
   color:black;
+  max-width:223px;
   
+}
+.item-container > .delivery{
+  margin: 0;
+}
+.item-container > .cents{
+  top: -100px;
+  font-size: 13px;
+  display: block;
+  position: relative;
 }
 
 .item-container > .item-title:visited {
@@ -89,7 +99,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0;
+  margin-left: auto;
+  height: min-content;
   color: rgb(40, 150, 223);
 }
 
@@ -122,11 +133,12 @@ body {
   width: auto;
   margin: auto;
   margin-bottom: 10px;
+  
 }
 
 #myForm 
   {
-    border: solid black 1px;
+    border: solid rgba(185, 185, 185, 0.486) 1px;
     padding: 26px 20px;
     font-weight: 400;
     display: flex;
@@ -136,6 +148,9 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     border-radius: 8px;
+    width: 348px;
+    height: auto;
+    
   
   }
   #myForm  > label
@@ -150,7 +165,7 @@ body {
   {
     font-size: 13px ;
     border-radius: 3px;
-    border: 1px rgb(17, 17, 17) solid;
+    border: 1px rgba(138, 138, 138, 0.726) solid;
   
   }
 
@@ -163,6 +178,7 @@ body {
     width: 100%;
     
   }
+  
 .cents{
   vertical-align: text-top;
 }
@@ -185,17 +201,18 @@ body {
 }
 
 .item-container > .item-rating {
-  text-align: center;
-  margin: auto;
+  text-align: left;
+  font-size: 14px;
+  margin: 0;
+  direction: ltr;
   min-height: 0;
-  display: grid;
-  grid-template-columns: repeat(6, 0.65fr);
-  
-  width: fit-content;
+  padding: 0;
+  box-sizing: border-box;
+ 
 }
 .item-review {
  color: #2896df ;
- 
+ margin:0;
  
 }
 
@@ -223,10 +240,12 @@ body {
   text-align: center;
   margin: auto;
   display: block;
-  max-width: 200px;
+  max-width: 150px;
   max-height: 100%;
   position: static;
   cursor: pointer;
+  box-sizing: border-box;
+  color:rgb(91, 93, 94);
   
 
 }
@@ -254,8 +273,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr ;
     grid-template-rows:  1fr 1fr 1fr 1fr;
-   
-    
+    color: red;
   }
 }
 

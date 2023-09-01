@@ -57,7 +57,7 @@ const renderProducts = async () => {
       const reviewElement = document.createElement('p');
       const deliveryElement = document.createElement('p');
       const dollarElement = document.createElement('p');
-      const centsElement = document.createElement('p');
+      const centsElement = document.createElement('sup');
 
     
       // Applying classes
@@ -82,10 +82,10 @@ const renderProducts = async () => {
       priceElement.textContent = "$ " + priceStyle(result[i].price);
       dollarElement.innerHTML= 'dollars' //priceElement[0];
       centsElement.innerHTML = 'cents'//priceElement[1];
-      ratingElement.innerHTML = starRating(result[i].rating.rate) ;
+      ratingElement.innerHTML = result[i].rating .rate + starRating(result[i].rating.rate);
       //inventoryElement.textContent = 'Items in Stock: ' + result[i].rating.count;
       imgElement.src=result[i].image;
-      reviewElement.textContent = reviewCounter(1000, 10000);
+      reviewElement.textContent = `(${reviewCounter(1000, 10000)}k+)`;
       deliveryElement.textContent = "Free Delivery" + randomDelivery();
 
       //anchor element with links
@@ -100,7 +100,7 @@ const renderProducts = async () => {
       ratingElement.appendChild(reviewElement);
       //containerElement.appendChild(descriptionElement); 
       containerElement.appendChild(priceElement);
-      priceElement.appendChild(dollarElement);
+      //priceElement.appendChild(dollarElement);
       priceElement.appendChild(centsElement);
       //containerElement.appendChild(inventoryElement);
       //containerElement.appendChild(categoryElement);
