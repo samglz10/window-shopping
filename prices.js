@@ -1,4 +1,23 @@
- export function priceStyle(price){
+/**
+ * @param { number } price in the format of a number
+ * @return {{ dollars: number, cents: number }}  
+ */
+export function splitIntoDollarsAndCents(price) {
+  // Format the number into two decimal places
+  const twoDecimalPlaces = price.toFixed(2);
+
+  const portions = twoDecimalPlaces.split('.');
+  const [
+    dollars, 
+    cents = "00",
+  ] = portions;
+
+  
+}
+
+// Make the return type like this { dollars: number, cents: number }
+
+export function priceStyle(price){
   
   //Round down to nearest whole number to get price;
   const dollars = Math.floor(price).toString();
@@ -16,8 +35,9 @@
     cents = 0;
     cents += '0';
   }
-    let totalPrice= [dollars, cents];
-    
-    return totalPrice;
+
+  let totalPrice= [dollars, cents];
+  
+  return totalPrice;
   
 } 
